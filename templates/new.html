@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <h2>New Observation</h2>
+   <form action="{{ url_for('new_observation_route') }}" method="post" novalidate>
+      
+      {{ new_observation_form.hidden_tag() }}
+
+
+      <p>
+         {{ new_observation_form.Observation_Teacher.label }}<br>
+         {{ new_observation_form.Observation_Teacher(class_="form-control", placeholder="Type question...") }}
+      </p>
+      <p>
+         {{ new_observation_form.Observation_Class.label }}<br>
+         {{ new_observation_form.Observation_Class(class_="form-control", placeholder="Enter a class...") }}
+      </p>
+      <p>
+         {{ new_observation_form.Observation_Focus.label }}<br>
+         {{ new_observation_form.Observation_Focus(class_="form-control", placeholder="Observation focus...") }}
+      </p>
+      <p>
+         {{ new_observation_form.Observation_Strengths.label }}<br>
+         {{ new_observation_form.Observation_Strengths }}
+     </p>
+     <p>
+         {{ new_observation_form.Observation_Weaknesses.label }}<br>
+         {{ new_observation_form.Observation_Weaknesses }}
+     </p>
+     <p>
+         {{ new_observation_form.Observation_Comments.label }}<br>
+         {{ new_observation_form.Observation_Comments }}
+     </p>
+           <p>{{ new_observation_form.submit(class="btn btn-primary") }}</p>
+   </form>
+
+{% endblock %}

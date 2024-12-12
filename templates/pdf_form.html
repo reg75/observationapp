@@ -1,0 +1,32 @@
+{% block content %}
+<div class="content">
+    <h2>Lesson Observation</h2>
+    
+    {% if observation %}
+    <section class="observation-details">
+        <h4>Teacher</h4>
+        <p>{{ observation.Teacher.User_Forename }} {{ observation.Teacher.User_Surname }}</p>
+        
+        <h4>Class</h4>
+        <p>{{ observation.Observation_Class }}</p>
+        
+        <h4>Date</h4>
+        <p>{{ observation.Observation_Date.strftime('%d/%m/%Y') }}</p>
+        
+        <h4>Focus</h4>
+        <p>{{ observation.Observation_Focus }}</p>
+        
+        <h4>Strengths</h4>
+        <p>{{ observation.Observation_Strengths|default("No strengths recorded.") }}</p>
+        
+        <h4>Weaknesses</h4>
+        <p>{{ observation.Observation_Weaknesses|default("No weaknesses recorded.") }}</p>
+        
+        <h4>Other Comments</h4>
+        <p>{{ observation.Observation_Comments|default("No comments recorded.") }}</p>
+    </section>
+    {% else %}
+    <p>No observation found.</p>
+    {% endif %}
+</div>
+{% endblock %}

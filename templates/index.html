@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <div class="content">
+      <h2 >Observations</h2>
+
+   <table class="centre">
+      <tr>
+         <th>Teacher</th>
+         <th>Class</th>
+         <th>Date</th>
+         <th>Actions</th>
+      </tr>
+      {% for observation in observations %}
+         <tr>
+            <td>{{ observation.Teacher.User_Forename }} {{ observation.Teacher.User_Surname }}</td>
+            <td>{{ observation.Observation_Class }}</td>
+            <td>{{ observation.Observation_Date.strftime('%d/%m/%Y') }}</td>
+            <td>
+               <a href="{{ url_for('view_observation', observation_id=observation.Observation_ID) }}">View</a>
+               <a href="/delete/{{observation.Observation_ID}}">Delete</a>
+               <a href="{{ url_for('download_pdf', observation_id=observation.Observation_ID) }}">PDF</a>
+            </td>
+         </tr>
+      {% else %}
+      <p>No observations yet!</p>
+      {% endfor %}
+
+   </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+/* ======= General Styles / Estilos Gerais ======= */
+body {
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   color: #333333; 
+}
+
+.navbar {
+   padding-left: 750px;
+   padding-right: 750px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+}
+
+/* ======== Headings / Cabeçalhoes ======= */
+h1 {
+   font-size: 4em;
+   color: #FFFFFF; /* White / Branco */
+   text-align: center;
+   background-color: #87CEEB; /* Sky blue / Azul cielo */
+   padding-top: 16px;
+   padding-bottom: 16px;
+}
+
+h2 {
+   font-size: 2em;
+   text-align: center;
+   padding-top: 8px;
+   padding-bottom: 8px;
+}
+
+/* ======== Forms / Formas ========= */
+/* General form styles / Estilos gerais */
+form {
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+/* EN: Input and textarea styling for observation fields */
+/* BR: Estilo de input e textarea por campoes de 'observation'.*/
+textarea.custom-textarea {
+   height: 150px !important;
+   width: 100%;
+   border: 1px solid #ced4da;
+   border-radius: 10px;
+   text-align: left;
+   padding: 8px;
+   font-size: 1em;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+   white-space: pre-wrap;
+}
+
+.centre {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+/* ========== Tables / Tabelas ========== */
+th, td {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 20px;
+   padding-right: 20px;
+   border-bottom: 1px solid black;
+   border-top: 1px solid black;
+}
+
+th {
+   text-align: center;
+}
+
+td {
+   text-align: left;
+}
+
+/* Observation details section  / seção 'observation details */
+.observation-details {
+   padding-left: 20px;
+}
+
+
+
