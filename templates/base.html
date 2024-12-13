@@ -8,23 +8,40 @@
       <!-- Include Bootsrap / Inclui Bootstrap -->
       <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
       
-      <!-- Include CUstom CSS / Inclui CSS personalizado -->
+      <!-- Include Custom CSS / Inclui CSS personalizado -->
       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <header>
       <div class="header">
-         <h1>droptin</h1>
+         <h1>
+            <a href="{{ url_for('index') }}" class="header-link">droptin</a>
+         </h1>
       </div>
       
       <!-- Navigation buttons / Botões de navegação -->
-      <div class="navbar">
-         <a href="{{ url_for('index') }}" class="btn btn-primary mb-2" role="button">View observations</a>
-         <a href="{{ url_for('new_observation_route') }}" class="btn btn-primary mb-2" role="button">New observation</a>
+      <div class="flex-container">
+         <div>
+            <a href="{{ url_for('index') }}" class="btn btn-primary mb-2" role="button">View observations</a>
+         </div>
+         <div>   
+            <a href="{{ url_for('new_observation_route') }}" class="btn btn-primary mb-2" role="button">New observation</a>
+         </div>
       </div>
    </header>
    <body>
+      <!-- Flash message block / bloco de mensagens flash -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+         {% if messages %}
+            <div>
+               {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">{{ message }}</div>
+               {% endfor %}
+            </div>
+         {% endif %}
+      {% endwith %}
+
       <!-- Content block for dynamic content / bloco de conteúdo para conteúdo dinâmico -->
       {% block content %} {% endblock %}
    </body>

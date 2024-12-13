@@ -4,11 +4,12 @@ body {
    color: #333333; 
 }
 
-.navbar {
-   padding-left: 750px;
-   padding-right: 750px;
-   padding-top: 30px;
-   padding-bottom: 30px;
+.flex-container {
+   display : flex;
+   justify-content: center;
+   gap: 3rem;
+   flex-wrap: wrap;
+   margin: 1rem 0
 }
 
 /* ======== Headings / Cabeçalhoes ======= */
@@ -19,6 +20,11 @@ h1 {
    background-color: #87CEEB; /* Sky blue / Azul cielo */
    padding-top: 16px;
    padding-bottom: 16px;
+}
+
+.header-link {
+   text-decoration: none;
+   color: inherit
 }
 
 h2 {

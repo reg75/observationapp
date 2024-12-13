@@ -6,24 +6,33 @@
 
    <table class="centre">
       <tr>
-         <th>Teacher</th>
-         <th>Class</th>
-         <th>Date</th>
-         <th>Actions</th>
+         <th>Teacher</th> <!-- Teacher's name / Nome do professor -->
+         <th>Class</th> <!-- Class / Turma -->
+         <th>Date</th> <!-- Observation Date / Data da observação -->
+         <th>Actions</th> <!-- Actions / Ações -->
       </tr>
       {% for observation in observations %}
          <tr>
-            <td>{{ observation.Teacher.User_Forename }} {{ observation.Teacher.User_Surname }}</td>
+            <td>{{ observation.Teacher.User_Forename }} {{ observation.Teacher.User_Surname }}</td> 
             <td>{{ observation.Observation_Class }}</td>
             <td>{{ observation.Observation_Date.strftime('%d/%m/%Y') }}</td>
             <td>
                <a href="{{ url_for('view_observation', observation_id=observation.Observation_ID) }}">View</a>
-               <a href="/delete/{{observation.Observation_ID}}">Delete</a>
+               <a href="#" onclick="confirmDelete('/delete/{{ observation.Observation_ID }}')">Delete</a>
+                  <!-- Deletion warning / Aviso de apagamento -->
+                  <script>
+                     function confirmDelete(deleteUrl) {
+                        if (confirm("Delete observation?")) {
+                           window.location.href = deleteUrl;
+                        }
+                     }
+                  </script>
+
                <a href="{{ url_for('download_pdf', observation_id=observation.Observation_ID) }}">PDF</a>
             </td>
          </tr>
       {% else %}
-      <p>No observations yet!</p>
+      <p>No observations yet!</p> <!-- Message if no observations / Mensagem se não houver observações -->
       {% endfor %}
 
    </table>
